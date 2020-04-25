@@ -39,262 +39,236 @@
 		<title>Bingo</title>
 	</head>
 	<body>
-		<nav class="navbar navbar-dark bg-dark mb-4">
-			<a class="navbar-brand" href="#">Let's Bingo</a>
-			<form class="form-inline">
-				<button
-					id="btn_new-ticket"
-					class="btn btn-outline-success"
-					type="button"
-				>
-					Generate ticket
-				</button>
-			</form>
-			<form class="form-inline">
-				<button id="btn_new-game" class="btn btn-outline-info" type="button">
-					New game
-				</button>
-			</form>
-		</nav>
+		<header>
+			<nav class="navbar navbar-dark bg-dark mb-4">
+				<a class="navbar-brand" href="#">Let's Bingo</a>
+				<form class="form-inline">
+					<button
+						id="btn_new-ticket"
+						class="btn btn-outline-success"
+						type="button"
+					>
+						Generate ticket
+					</button>
+				</form>
+				<form class="form-inline">
+					<button id="btn_new-game" class="btn btn-outline-info" type="button">
+						New game
+					</button>
+				</form>
+			</nav>
+		</header>
 
-		<div class="container-fluid" style="padding-bottom: 15px;">
-			<div id="number_gen_block" class="row">
-				<aside class="col-lg-5 col-lg-push-7">
-					<div class="container-fluid">
-						<div class="row">
-							<aside class="col-sm-9">
-								<center>
-									<div class="content">
-										<div class="circle">
-											<p id="number_para">0</p>
+		<main role="main" class="flex-shrink-0">
+			<div class="container-fluid" style="padding-bottom: 15px;">
+				<div id="number_gen_block" class="row">
+					<aside class="col-lg-5 col-lg-push-7">
+						<div class="container-fluid">
+							<div class="row">
+								<aside class="col-sm-9">
+									<center>
+										<div class="content">
+											<div class="circle">
+												<p id="number_para">0</p>
+											</div>
+											<button id="random">Next Number</button>
+											<div id="end" style="display: none;">
+												<p id="gameover">GAME OVER!</p>
+											</div>
+											<br />
 										</div>
-										<button id="random">Next Number</button>
-										<div id="end" style="display: none;">
-											<p id="gameover">GAME OVER!</p>
-										</div>
-										<br />
-									</div>
-								</center>
-							</aside>
-
-							<aside class="col-sm-3">
-								<p class="temp2">Previous Numbers</p>
-								<table id="cache" class="board">
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-									<tr>
-										<td class="no_border">s</td>
-									</tr>
-								</table>
-							</aside>
+									</center>
+									<p class="temp2">Previous Numbers</p>
+									<ul id="cache" class="list-inline"></ul>
+								</aside>
+							</div>
 						</div>
-					</div>
-				</aside>
+					</aside>
 
-				<section class="col-lg-7 col-lg-pull-5">
-					<table id="table" class="board">
-						<tr>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-						</tr>
-						<tr>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-						</tr>
-						<tr>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-						</tr>
-						<tr>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-						</tr>
-						<tr>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-							<td class="border"></td>
-							<td></td>
-						</tr>
+					<section class="col-lg-7 col-lg-pull-5">
+						<table id="table" class="board">
+							<tr>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+							</tr>
+							<tr>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+							</tr>
+							<tr>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+							</tr>
+							<tr>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+							</tr>
+							<tr>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+								<td class="border"></td>
+								<td></td>
+							</tr>
+						</table>
+					</section>
+				</div>
+			</div>
+
+			<!-- Ticket Generation Desgin -->
+
+			<h1 align="center">Housie Ticket Generator</h1>
+			<div align="center">
+				<form align="center" action="/action_page.php">
+					<label for="fname">Name:</label>
+					<input
+						style="margin-left: 10px;"
+						type="text"
+						id="fname"
+						name="fname"
+					/><br /><br />
+				</form>
+				<h4><a href="#" id="newCard">Get New Ticket</a></h4>
+			</div>
+
+			<div
+				align="center"
+				id="ticketname"
+				style="height: 20px; margin-top: 40px;"
+			></div>
+
+			<div align="center" id="printarea" style="margin-top: 20px;">
+				<div id="page1">
+					<table id="table1" class="table2">
+						<tbody id="tbodyid">
+							<tr>
+								<td id="cell1"></td>
+								<td id="cell2"></td>
+								<td id="cell3"></td>
+								<td id="cell4"></td>
+								<td id="cell5"></td>
+								<td id="cell6"></td>
+								<td id="cell7"></td>
+								<td id="cell8"></td>
+								<td id="cell9"></td>
+							</tr>
+							<tr>
+								<td id="cell11"></td>
+								<td id="cell12"></td>
+								<td id="cell13"></td>
+								<td id="cell14"></td>
+								<td id="cell15"></td>
+								<td id="cell16"></td>
+								<td id="cell17"></td>
+								<td id="cell18"></td>
+								<td id="cell19"></td>
+							</tr>
+							<tr>
+								<td id="cell21"></td>
+								<td id="cell22"></td>
+								<td id="cell23"></td>
+								<td id="cell24"></td>
+								<td id="cell25"></td>
+								<td id="cell26"></td>
+								<td id="cell27"></td>
+								<td id="cell28"></td>
+								<td id="cell29"></td>
+							</tr>
+						</tbody>
 					</table>
-				</section>
+				</div>
 			</div>
-		</div>
+		</main>
 
-		<!-- Ticket Generation Desgin -->
-
-		<h1 align="center">Housie Ticket Generator</h1>
-		<div align="center">
-			<form align="center" action="/action_page.php">
-				<label for="fname">Name:</label>
-				<input
-					style="margin-left: 10px;"
-					type="text"
-					id="fname"
-					name="fname"
-				/><br /><br />
-			</form>
-			<h4><a href="#" id="newCard">Get New Ticket</a></h4>
-		</div>
-
-		<!--          <h4 align="center"><a href="#" id="printBut" >Print</a></h4>
- -->
-		<!-- <div class= "header" -->
-
-		<div
-			align="center"
-			id="ticketname"
-			style="height: 20px; margin-top: 40px;"
-		></div>
-
-		<div align="center" id="printarea" style="margin-top: 20px;">
-			<div id="page1">
-				<table id="table1" class="table2">
-					<tbody id="tbodyid">
-						<tr>
-							<td id="cell1"></td>
-							<td id="cell2"></td>
-							<td id="cell3"></td>
-							<td id="cell4"></td>
-							<td id="cell5"></td>
-							<td id="cell6"></td>
-							<td id="cell7"></td>
-							<td id="cell8"></td>
-							<td id="cell9"></td>
-						</tr>
-						<tr>
-							<td id="cell11"></td>
-							<td id="cell12"></td>
-							<td id="cell13"></td>
-							<td id="cell14"></td>
-							<td id="cell15"></td>
-							<td id="cell16"></td>
-							<td id="cell17"></td>
-							<td id="cell18"></td>
-							<td id="cell19"></td>
-						</tr>
-						<tr>
-							<td id="cell21"></td>
-							<td id="cell22"></td>
-							<td id="cell23"></td>
-							<td id="cell24"></td>
-							<td id="cell25"></td>
-							<td id="cell26"></td>
-							<td id="cell27"></td>
-							<td id="cell28"></td>
-							<td id="cell29"></td>
-						</tr>
-					</tbody>
-				</table>
+		<footer class="footer mt-auto py-3">
+			<div class="container">
+				<span class="text-muted float-right">Chiran Jain</span>
 			</div>
-		</div>
-
-		<!-- Ticket Generation Desgin -->
-
-		<footer class="container-fluid">Chiran Jain</footer>
+		</footer>
 	</body>
 </html>

@@ -1,61 +1,57 @@
 $(document).ready(function () {
 	let para = document.getElementById("number_para");
-	let random_number = document.getElementById("random");
+	let btnNextNumber = document.getElementById("random");
 	let table = document.getElementById("table");
 	let game = document.getElementById("end");
-	let play_again = document.getElementById("btn_new-game");
-	let cache = document.getElementById("cache");
+	let btnNewGame = document.getElementById("btn_new-game");
+	let $cache = $("#cache");
+
+	let tokens = new Array();
+	let store_num = new Array();
+	let len_store = 0;
+	let len = 90;
+
+	function init() {
+		$cache.empty();
+
+		for (let i = 1; i <= 90; ++i) {
+			tokens.push(i);
+		}
+	}
 
 	//var w = window.speechSynthesis;
-
-	var array = new Array();
-	var store_num = new Array();
-	len_store = 0;
-	len = 90;
-	for (var i = 1; i <= 90; ++i) {
-		array.push(i);
-	}
 
 	for (var i = 0; i < 9; ++i) {
 		for (var j = 0; j < 10; j++) {
 			table.rows[i].cells[j].innerText = "";
 		}
 	}
-	for (var i = 0; i < 8; i++) {
-		cache.rows[i].cells[0].innerText = "";
-	}
+
+	init();
+
 	var row_prev = -1;
 	var column_prev = -1;
 	var row, column;
-	random_number.addEventListener("click", function () {
+
+	btnNextNumber.addEventListener("click", function () {
 		var ran_value = Math.floor(Math.random() * len);
 		len -= 1;
-		var n = array[ran_value].toString();
-		store_num.push(array[ran_value]);
+		var n = tokens[ran_value].toString();
+		store_num.push(tokens[ran_value]);
 		len_store += 1;
 		var msg = new SpeechSynthesisUtterance(n);
 		msg.pitch = 2;
 		//w.speak(msg);
-		row = parseInt(array[ran_value] / 10);
-		column = parseInt(array[ran_value] % 10);
+		row = parseInt(tokens[ran_value] / 10);
+		column = parseInt(tokens[ran_value] % 10);
 		if (column == 0) {
 			column = 10;
 			row -= 1;
 		}
 
-		if (len_store < 9) {
-			var k = 0;
-			for (var i = len_store - 1; i >= 0; --i) {
-				cache.rows[k].cells[0].innerText = store_num[i].toString();
-				k += 1;
-			}
-		} else {
-			var k = 0;
-			for (var i = len_store - 1; i >= len_store - 8; --i) {
-				cache.rows[k].cells[0].innerText = store_num[i].toString();
-				k += 1;
-			}
-		}
+		$cache.append(
+			`<li class="list-inline-item">${store_num[store_num.length - 1]}</li>`
+		);
 
 		table.rows[row].cells[column - 1].innerText = n;
 		table.rows[row].cells[column - 1].style.backgroundColor = "#d4c893";
@@ -67,22 +63,21 @@ $(document).ready(function () {
 		para.innerText = n;
 		row_prev = row;
 		column_prev = column;
-		array.splice(ran_value, 1);
+		tokens.splice(ran_value, 1);
 		if (len == 0) {
-			random_number.style.display = "none";
+			btnNextNumber.style.display = "none";
 			game.style.display = "block";
 		}
 	});
 
-	play_again.addEventListener("click", function () {
+	btnNewGame.addEventListener("click", function () {
 		if (confirm("Are you sure you want to reset the game?")) {
-			random_number.style.display = "block";
+			btnNextNumber.style.display = "block";
 			game.style.display = "none";
 			para.innerText = "0";
-			array = new Array();
-			len = 90;
+			tokens = new Array();
 			for (var i = 1; i <= 90; ++i) {
-				array.push(i);
+				tokens.push(i);
 			}
 			store_num = new Array();
 			len_store = 0;
@@ -92,9 +87,7 @@ $(document).ready(function () {
 					table.rows[i].cells[j].innerText = "";
 				}
 			}
-			for (var i = 0; i < 8; i++) {
-				cache.rows[i].cells[0].innerText = "";
-			}
+			init();
 			table.rows[row].cells[column - 1].style.background = null;
 			var row_prev = -1;
 			var column_prev = -1;

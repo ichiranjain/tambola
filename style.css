@@ -1,27 +1,12 @@
 body {
 	padding: 0px;
 	margin: 0px;
-	margin-bottom: 30px;
-	height: 100%;
-	width: 100%;
 	background-color: #f9f9f9;
-}
-header,
-footer {
-	background-color: #012935;
-	padding: 10px;
-	font-size: 40px;
-	text-align: center;
-	color: #d5d5d3;
-}
-footer {
-	margin-top: 40px;
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	padding: 5px;
-	font-size: 15px;
-	text-align: right;
+
+	/* Lock scroll */
+	height: 100vh;
+	width: 100vw;
+	/* overflow: hidden; */
 }
 hr {
 	display: block;
@@ -119,11 +104,6 @@ td {
 	padding-top: 10%;
 	font-size: 200%;
 	padding-bottom: -10%;
-}
-
-#number_gen_block {
-	border-bottom: 2px dotted;
-	color: #666666;
 }
 
 @media (max-width: 4500px) {
