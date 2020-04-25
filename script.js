@@ -3,7 +3,7 @@ $(document).ready(function () {
 	let random_number = document.getElementById("random");
 	let table = document.getElementById("table");
 	let game = document.getElementById("end");
-	let play_again = document.getElementById("button2");
+	let play_again = document.getElementById("btn_new-game");
 	let cache = document.getElementById("cache");
 
 	//var w = window.speechSynthesis;

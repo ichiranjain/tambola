@@ -39,8 +39,23 @@
 		<title>Bingo</title>
 	</head>
 	<body>
-		<header class="container-fluid">Let's Bingo</header>
-		<hr />
+		<nav class="navbar navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">Let's Bingo</a>
+			<form class="form-inline">
+				<button
+					id="btn_new-ticket"
+					class="btn btn-outline-success"
+					type="button"
+				>
+					Generate ticket
+				</button>
+			</form>
+			<form class="form-inline">
+				<button id="btn_new-game" class="btn btn-outline-info" type="button">
+					New game
+				</button>
+			</form>
+		</nav>
 
 		<div class="container-fluid" style="padding-bottom: 15px;">
 			<div id="number_gen_block" class="row">
@@ -58,7 +73,6 @@
 											<p id="gameover">GAME OVER!</p>
 										</div>
 										<br />
-										<button id="button2">Reset</button>
 									</div>
 								</center>
 							</aside>
