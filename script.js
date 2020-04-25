@@ -75,7 +75,6 @@ random_number.addEventListener("click", function () {
 
 play_again.addEventListener("click", function () {
 	if (confirm("Are you sure you want to reset the game?")) {
-		w.cancel();
 		random_number.style.display = "block";
 		game.style.display = "none";
 		para.innerText = "0";
