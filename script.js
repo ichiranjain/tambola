@@ -37,7 +37,7 @@ $(document).ready(function () {
 		// set board
 		$board.empty();
 		for (var i = 0; i < 9; ++i) {
-			const row = $('<div id="row" class="board-row"></div>');
+			const row = $('<div class="board-row"></div>');
 			for (var j = 1; j <= 10; j++) {
 				const tileNumber = i * 10 + j;
 				row.append(

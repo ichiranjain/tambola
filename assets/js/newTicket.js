@@ -13,8 +13,6 @@ $(document).ready(function () {
 	var aryKeyValue = [];
 	var arrKeyValuePair = [];
 
-	publish();
-
 	function init() {
 		arrKeyValuePair = [];
 		aryKeyValue = [];
@@ -171,54 +169,43 @@ $(document).ready(function () {
 		arrKeyValuePair.push(name + ":" + val);
 		return arrKeyValuePair;
 	}
-	function publish() {
-		console.log("in Publish");
-		var res = 0;
-		var value = 0;
-		var key = 0;
-		var rownum = 0;
-		var aryKeyValue = [];
-		var ticketname = $("#fname").val();
-		if (ticketname !== null || ticketname !== "") {
-			console.log(name);
-			document.getElementById("ticketname").innerHTML = ticketname;
+
+	function generateNewTicket() {
+		const newTicket = [
+			new Array(9).fill(null),
+			new Array(9).fill(null),
+			new Array(9).fill(null),
+		];
+
+		const aryKeyValues = init();
+		for (let i = 0; i < aryKeyValues.length; i++) {
+			const [key, value] = aryKeyValues[i].split(":");
+			const row = Math.floor(key / 10);
+			const col = (key % 10) - 1;
+
+			newTicket[row][col] = value;
 		}
-		for (var j = 1; j <= 1; j++) {
-			aryKeyValue = init();
-			var table = document.getElementById("table" + j);
-			for (var i = 0; i < aryKeyValue.length; i++) {
-				res = aryKeyValue[i].split(":");
-				key = res[0];
-				value = res[1];
-				// console.log("KEY "+key);
-				if (key > 10) {
-					rownum = ~~(key / 10);
-				} else {
-					rownum = 0;
-				}
-				// console.log("rownum: "+rownum);
-				table.rows[rownum].cells["cell" + key].innerHTML = value;
-			}
-		}
+
+		return newTicket;
 	}
-	// clear all colums
-	function clear() {
-		for (var j = 1; j <= 1; j++) {
-			var table = document.getElementById("table" + j);
-			for (var row = 0; row <= 2; row++) {
-				for (var i = 1 + row * 10; i <= 9 + row * 10; i++) {
-					if (i == 10 || i == 20) {
-					} else {
-						table.rows[row].cells["cell" + i].innerHTML = "";
-					}
-				}
-			}
+
+	function renderTicket(ticket) {
+		const ticketName = $("#fname").val();
+		// TODO: Add a default name
+		if (ticketName) {
+			$("#new-ticket-name").text(ticketName);
 		}
-	}
-	// print command to check
-	function printArray(aryKeyValue) {
-		for (var i = 0; i < aryKeyValue.length; i++) {
-			console.log(aryKeyValue[i]);
+
+		const $newTicketContent = $("#new-ticket-content");
+		$newTicketContent.empty();
+
+		for (let i = 0; i < ticket.length; i++) {
+			const row = $('<div class="ticket-row"></div>');
+			for (let j = 0; j < ticket[i].length; j++) {
+				const value = ticket[i][j] || " ";
+				row.append(`<div class="ticket-cell">${value}</div>`);
+			}
+			$newTicketContent.append(row);
 		}
 	}
 
@@ -238,10 +225,14 @@ $(document).ready(function () {
 		popupWin.document.close();
 	}
 
-	$("#newCard").click(function () {
-		clear();
-		publish();
-	});
+	function handleNewTicket() {
+		const newTicket = generateNewTicket();
+		renderTicket(newTicket);
+	}
+
+	handleNewTicket();
+
+	$("#btn-generate-new-ticket").on("click", handleNewTicket);
 
 	$("#printBut").click(function () {
 		printDiv();

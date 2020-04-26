@@ -19,8 +19,12 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="style.css" />
-		<!--     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style_ticket.css" />
- -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="assets/css/style_ticket.css"
+		/>
 
 		<!-- Scripts -->
 		<script
@@ -33,7 +37,7 @@
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"
 		></script>
-		<script type="text/javascript" src="assets/js/script.js"></script>
+		<script type="text/javascript" src="assets/js/newTicket.js"></script>
 		<script src="script.js" type="text/javascript"></script>
 
 		<title>Bingo</title>
@@ -124,7 +128,7 @@
 									</div>
 									<div class="row mb-3">
 										<button
-											id="btn-new-ticket"
+											id="btn-generate-new-ticket"
 											class="btn btn-success ml-3 rm-3"
 											type="button"
 										>
@@ -134,62 +138,18 @@
 								</form>
 								<section id="new-ticket">
 									<header id="new-ticket-name"></header>
-									<main></main>
+									<div id="new-ticket-content"></div>
 								</section>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div align="center" id="printarea" style="margin-top: 20px;">
-				<div id="page1">
-					<table id="table1" class="table2">
-						<tbody id="tbodyid">
-							<tr>
-								<td id="cell1"></td>
-								<td id="cell2"></td>
-								<td id="cell3"></td>
-								<td id="cell4"></td>
-								<td id="cell5"></td>
-								<td id="cell6"></td>
-								<td id="cell7"></td>
-								<td id="cell8"></td>
-								<td id="cell9"></td>
-							</tr>
-							<tr>
-								<td id="cell11"></td>
-								<td id="cell12"></td>
-								<td id="cell13"></td>
-								<td id="cell14"></td>
-								<td id="cell15"></td>
-								<td id="cell16"></td>
-								<td id="cell17"></td>
-								<td id="cell18"></td>
-								<td id="cell19"></td>
-							</tr>
-							<tr>
-								<td id="cell21"></td>
-								<td id="cell22"></td>
-								<td id="cell23"></td>
-								<td id="cell24"></td>
-								<td id="cell25"></td>
-								<td id="cell26"></td>
-								<td id="cell27"></td>
-								<td id="cell28"></td>
-								<td id="cell29"></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
 		</main>
 
-		<footer class="footer mt-auto py-3">
-			<div class="container">
-				<span class="text-muted float-right"
-					>Chiran Jain / Vedant Raiththa</span
-				>
+		<footer class="footer mt-auto pt-3">
+			<div class="text-right text-light pr-3 bg-dark">
+				Chiran Jain
 			</div>
 		</footer>
 	</body>
