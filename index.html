@@ -44,7 +44,7 @@
 				<a class="navbar-brand" href="#">Let's Bingo</a>
 				<form class="form-inline">
 					<button
-						id="btn_new-ticket"
+						id="btn-new-ticket"
 						class="btn btn-outline-success"
 						type="button"
 					>
@@ -52,7 +52,7 @@
 					</button>
 				</form>
 				<form class="form-inline">
-					<button id="btn_new-game" class="btn btn-outline-info" type="button">
+					<button id="btn-new-game" class="btn btn-outline-info" type="button">
 						New game
 					</button>
 				</form>
@@ -60,144 +60,144 @@
 		</header>
 
 		<main role="main" class="flex-shrink-0">
-			<div class="container-fluid" style="padding-bottom: 15px;">
-				<div id="number_gen_block" class="row">
-					<aside class="col-lg-5 col-lg-push-7">
-						<div class="container-fluid">
-							<div class="row">
-								<aside class="col-sm-9">
-									<center>
-										<div class="content">
-											<div class="circle">
-												<p id="number_para">0</p>
-											</div>
-											<button id="random">Next Number</button>
-											<div id="end" style="display: none;">
-												<p id="gameover">GAME OVER!</p>
-											</div>
-											<br />
-										</div>
-									</center>
-									<p class="temp2">Previous Numbers</p>
-									<ul id="cache" class="list-inline"></ul>
-								</aside>
-							</div>
+			<div class="row">
+				<aside class="col-lg-3">
+					<section class="m-3">
+						<div class="circle">
+							<p id="current-number" class="text-center display-1"></p>
 						</div>
-					</aside>
-
-					<section class="col-lg-7 col-lg-pull-5">
-						<table id="table" class="board">
-							<tr>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-							</tr>
-							<tr>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-							</tr>
-							<tr>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-							</tr>
-							<tr>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-							</tr>
-							<tr>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-								<td class="border"></td>
-								<td></td>
-							</tr>
-						</table>
+						<button
+							id="btn-next-number"
+							class="btn btn-primary btn-lg btn-block"
+						>
+							Next Number
+						</button>
+						<section id="game-over">
+							<p>GAME OVER!</p>
+						</section>
+						<section class="mt-3">
+							<header>
+								<strong>Previous Numbers</strong>
+							</header>
+							<main>
+								<ul id="cache" class="list-inline"></ul>
+							</main>
+						</section>
 					</section>
-				</div>
+				</aside>
+
+				<section class="col-lg-9">
+					<table id="table" class="board">
+						<tr>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+						</tr>
+						<tr>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+						</tr>
+						<tr>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+						</tr>
+						<tr>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+						</tr>
+						<tr>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+							<td class="border"></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
 			</div>
 
 			<!-- Ticket Generation Desgin -->
