@@ -9,21 +9,16 @@ Array.prototype.popRandom = function () {
 };
 
 $(document).ready(function () {
-	const $para = $("#current-number");
+	const $currentTokenDisplay = $("#current-number");
 	const $btnNextNumber = $("#btn-next-number");
-	const table = document.getElementById("table");
+	const $board = $("#board");
 	const $gameOver = $("#game-over");
 	const $btnNewGame = $("#btn-new-game");
 	const $cache = $("#cache");
 
 	let availableTokens, foundTokens;
 
-	let row_prev, column_prev, row, column;
-
 	function init() {
-		row_prev = -1;
-		column_prev = -1;
-
 		availableTokens = new Array();
 		foundTokens = new Array();
 
@@ -37,28 +32,31 @@ $(document).ready(function () {
 
 		// setup UI
 		$cache.empty();
-		$para.text("-");
+		$currentTokenDisplay.text("-");
 
 		// set board
+		$board.empty();
 		for (var i = 0; i < 9; ++i) {
-			for (var j = 0; j < 10; j++) {
-				table.rows[i].cells[j].innerText = "";
-				table.rows[i].cells[j].style.background = null;
+			const row = $('<div id="row" class="board-row"></div>');
+			for (var j = 1; j <= 10; j++) {
+				const tileNumber = i * 10 + j;
+				row.append(
+					`<div id="tile-${tileNumber}" class="board-tile">${tileNumber}</div>`
+				);
 			}
+			$board.append(row);
 		}
 
+		$currentTokenDisplay.show();
 		$btnNextNumber.show();
 		$gameOver.hide();
 	}
 
-	//var w = window.speechSynthesis;
-
-	init();
-
-	$btnNextNumber.click(function () {
+	function handleNextNumber() {
 		// get random number from available tokens
 		const currentToken = availableTokens.popRandom();
 
+		$currentTokenDisplay.text(currentToken);
 		foundTokens.push(currentToken);
 
 		// Show the selected token in previous number
@@ -70,32 +68,26 @@ $(document).ready(function () {
 		//w.speak(msg);
 
 		// place the selected token
-		row = parseInt(currentToken / 10);
-		column = parseInt(currentToken % 10);
-		if (column == 0) {
-			column = 10;
-			row -= 1;
-		}
+		$(".current-token", "#board").removeClass("current-token");
+		$(`#tile-${currentToken}`, "#board").addClass("show-text current-token");
 
-		table.rows[row].cells[column - 1].innerText = currentToken;
-		table.rows[row].cells[column - 1].style.backgroundColor = "#d4c893";
-		table.rows[row].cells[column - 1].style.backgroundImage =
-			"linear-gradient(45deg, #FFFF00 0%, #d4c893 100%)";
-		if (row_prev !== -1 && column_prev !== -1) {
-			table.rows[row_prev].cells[column_prev - 1].style.background = null;
-		}
-		$para.text(currentToken);
-		row_prev = row;
-		column_prev = column;
 		if (availableTokens.length == 0) {
+			$currentTokenDisplay.hide();
 			$btnNextNumber.hide();
 			$gameOver.show();
 		}
-	});
+	}
 
-	$btnNewGame.click(function () {
+	function handleNewGame() {
 		if (confirm("Are you sure you want to reset the game?")) {
 			init();
 		}
-	});
+	}
+
+	//var w = window.speechSynthesis;
+
+	init();
+
+	$btnNextNumber.click(handleNextNumber);
+	$btnNewGame.click(handleNewGame);
 });

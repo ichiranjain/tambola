@@ -8,142 +8,72 @@ body {
 	width: 100vw;
 	/* overflow: hidden; */
 }
-hr {
-	display: block;
-	margin-top: -0.7em;
-	margin-left: auto;
-	margin-right: auto;
-	border-style: inset;
-	border-width: 1px;
-}
-.border {
-	background-color: #d5d5d3;
-}
-#table,
-td {
-	border: 1px inset;
-	border-collapse: separate;
-	border-spacing: 2px;
-	border-color: #012935;
-}
-#table {
-	margin-top: 25px;
-	width: 98%;
-	margin-left: 3px;
+
+#board {
+	background-color: skyblue;
+	border: outset darkred 6px;
+
+	width: 542px;
+	height: 542px;
+
+	padding: 1px;
 }
 
-#cache {
-	margin: 0px;
+#board .board-row {
+	height: 36px;
+	background-color: skyblue;
 }
 
-.temp2 {
-	font-size: 20px;
-	/* margin-top: 20px; */
-	color: #666666;
-}
+#board .board-row .board-tile {
+	width: 32px;
+	height: 32px;
+	color: #f9f9f9;
+	background-color: #f9f9f9;
+	border: solid #000 2px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 30%;
 
-#number {
+	padding-top: 4px;
 	text-align: center;
+	font-weight: bold;
+	font-size: 170%;
 }
 
-/*.circle {
-	border-style: solid;
-	border-color: coral;
-	border-radius: 50%;
-	width: 250px;
-	height: 250px;
-	border-width: thick;
-}*/
+#board .board-row .board-tile.show-text {
+	color: #333;
+}
 
-#button2 {
-	font-size: 140%;
-	padding: 4px 15px;
-	background: linear-gradient(#d5d5d3, #666666);
+#board .board-row .board-tile.current-token {
+	background-color: #d4c893;
+	background: linear-gradient(45deg, #ffff00 0%, #d4c893 100%);
 }
-.content {
-	margin-top: 5%;
-	padding-bottom: 30px;
-}
-#game-over > p {
-	padding-top: 10%;
-	font-size: 200%;
-	padding-bottom: -10%;
+
+#cache > li {
+	width: 10%;
 }
 
 @media (max-width: 4500px) {
-	.board td {
-		padding: 0px;
-		padding-top: 3px;
-		width: 30px;
-		text-align: center;
-		font-weight: bold;
-		height: 30px;
-		font-size: 90%;
-	}
-	#button2 {
-		font-size: 140%;
-		margin-top: 3 0px;
-	}
 }
 @media (min-width: 400px) and (max-width: 650px) {
-	.board td {
-		padding-top: 4px;
-		width: 30px;
-		text-align: center;
-		font-weight: bold;
-		height: 40px;
-		font-size: 120%;
-	}
-	#button2 {
-		font-size: 140%;
-		margin-top: 40px;
-	}
 }
 @media (min-width: 650px) and (max-width: 1200px) {
-	.board td {
-		padding-top: 4px;
-		width: 30px;
-		text-align: center;
-		font-weight: bold;
-		height: 60px;
-		font-size: 170%;
-	}
-	#button2 {
-		font-size: 140%;
-		margin-top: 50px;
-	}
-	#btn-next-number {
-		margin-top: 4%;
-	}
 }
 @media (min-width: 1200px) {
-	.board td {
-		padding-top: 4px;
-		width: 30px;
-		text-align: center;
-		font-weight: bold;
+	#board {
+		width: 630px;
+		height: 570px;
+
+		padding: 3px;
+	}
+
+	#board .board-row {
+		height: 61px;
+	}
+
+	#board .board-row .board-tile {
+		width: 55px;
 		height: 55px;
-		font-size: 170%;
-	}
-	.table2 td {
-		font-family: arial;
-		table-layout: fixed;
-		color: #333;
-		padding: 5px;
-		width: 20px;
-		height: 50px;
-		text-align: center;
-		border: 3px solid #303c4c !important;
-		background-color: #9cc0e7 !important;
-		border-collapse: collapse !important;
-		cellspacing: 1;
-	}
-	#button2 {
-		margin-top: 14%;
-		font-size: 140%;
-	}
-	#btn-next-number {
-		margin-top: 11%;
 	}
 }
 
